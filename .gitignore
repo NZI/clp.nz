@@ -1,0 +1,5 @@
+deploy
+dist
+node_modules
+keys.json
+.env

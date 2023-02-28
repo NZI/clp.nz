@@ -1,0 +1,22 @@
+version: "3.5"
+services:
+  # db:
+  #   image: surrealdb/surrealdb:latest
+  #   command: "start"
+  # client-db:
+  #   image: mysql:8
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  api:
+    image: node:latest
+    user: node
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: "npx nodemon src/server.ts"
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    name: proxynet
